@@ -46,8 +46,10 @@
  * For full list of effects, see:
  * https://docs.qmk.fm/#/feature_rgb_matrix?id=rgb-matrix-effects
  */
-#    define RGB_MATRIX_KEYPRESSES
-#    define RGB_MATRIX_FRAMEBUFFER_EFFECTS
+/*#    define RGB_MATRIX_KEYPRESSES
+#    define RGB_MATRIX_FRAMEBUFFER_EFFECTS*/
+#    define RGB_MATRIX_TYPING_HEATMAP
+#    define RGB_MATRIX_TYPING_HEATMAP_SLIM
 
 /* Set LED driver current */
 #    define CKLED2001_CURRENT_TUNE \
