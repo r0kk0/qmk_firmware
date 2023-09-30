@@ -16,7 +16,6 @@
 
 #include QMK_KEYBOARD_H
 
-//bool win_mode;
 // clang-format off
 enum layers{
   MAC_BASE,
@@ -68,14 +67,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][2] = {
 };
 #endif // ENCODER_MAP_ENABLE
 
-/*bool dip_switch_update_r0kk0(uint8_t index, bool active) { 
-    if(index == 0 && active) { 
-        win_mode = true;
-    } else {
-        win_mode = false;
-    }
-    return true;
-}*/
 #ifdef RGB_MATRIX_ENABLE
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     uint8_t current_layer = get_highest_layer(layer_state);
