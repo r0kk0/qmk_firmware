@@ -28,7 +28,6 @@
 #ifdef ENABLE_FACTORY_TEST
 #    include "factory_test.h"
 #endif
-
 typedef struct PACKED {
     uint8_t len;
     uint8_t keycode[3];
@@ -283,37 +282,3 @@ void raw_hid_receive(uint8_t *data, uint8_t length) {
     }
 }
 #endif
-
-bool dip_switch_update_user(uint8_t index, bool active) { 
-    if(index == 0 && active) { 
-        win_mode = true;
-    } else {
-        win_mode = false;
-    }
-    return true;
-}
-
-bool rgb_matrix_indicators_user(void) {
-    uint8_t current_layer = get_highest_layer(layer_state);
-    switch (current_layer) {
-        case MAC_BASE:
-        case WIN_BASE:
-            if (win_mode) {
-                /*rgb_matrix_set_color_all(0xFF, 0x00, 0x00);  // RGB red */
-                rgb_matrix_set_color(77, 0x00, 0xFF, 0xFF)
-            } else {
-                /*rgb_matrix_set_color_all(0x00, 0xFF, 0x00);  // RGB green*/
-                rgb_matrix_set_color(77, 0x00, 0xFF, 0x00)
-            }
-            break;
-        case MAC_FN:
-            rgb_matrix_set_color(77, 0xFF, 0x00, 0x00)
-            break;
-        case WIN_FN:
-            rgb_matrix_set_color(77, 0xFF, 0x00, 0x00)
-            break;
-        default:
-            break;
-    }
-    return false;
-}
